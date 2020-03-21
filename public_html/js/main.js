@@ -38,6 +38,7 @@ function encerrarCronometro(){
     clearInterval(cronometro);
     cronometro = null;
     campoDeDigitacao.addClass("campoDesabilitado");
+    inserirPlacar();
 }
 
 function digitar(){
@@ -53,15 +54,22 @@ function digitar(){
 }
 
 function verificarResposta(conteudo) {
-    var comparavel = frase.text().substr(0, conteudo.length);
-    if(conteudo === comparavel){
+    if(frase.text().startsWith(conteudo)){
         campoDeDigitacao.addClass("sucesso");
         campoDeDigitacao.removeClass("erro");
     }
     else{
-    campoDeDigitacao.addClass("erro");
+        campoDeDigitacao.addClass("erro");
         campoDeDigitacao.removeClass("sucesso");
     }
+}
+
+function inserirPlacar(){
+    var corpoDaTabela = $("#placar").find("tbody");
+    var usuario = "Marcelo Júnior";
+    var n = contadorDePalavras.text();
+
+    corpoDaTabela.prepend(novaLinhaDoPlacar(usuario, n));
 }
 
 function reiniciar() {
@@ -77,4 +85,28 @@ function reiniciar() {
     contadorDeCaracteres.text(0);
     contadorDePalavras.text(0);
     spanTempo.text(tempoTotal);
+}
+
+function novaLinhaDoPlacar(nomeUsuario, nPalavras){
+        var linha = $("<tr>");
+        var tdUsuario = $("<td>");
+        var tdN = $("<td>");
+        var tdRemover = $("<td>");
+        var btnRemover = $("<buttom>");
+
+        $(btnRemover).addClass("material-icons");
+        $(btnRemover).text("delete");
+        $(btnRemover).click(removerItemDoPlacar);
+
+        $(tdUsuario).text(nomeUsuario);
+        $(tdN).text(nPalavras);
+        $(tdRemover).append(btnRemover);
+
+        linha.append(tdUsuario);
+        linha.append(tdN);
+        linha.append(tdRemover);
+        return linha;
+}
+function removerItemDoPlacar(){
+    $(this).parent().parent().remove();
 }

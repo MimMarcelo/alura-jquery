@@ -9,6 +9,11 @@ textarea{
     height: 50px;
     resize: none;
 }
+table buttom{
+    padding: 0.4em;
+    background-color: transparent;
+    cursor: pointer;
+}
 .frase, .campoDeDigitacao{
     font-size: 2em;
 }
