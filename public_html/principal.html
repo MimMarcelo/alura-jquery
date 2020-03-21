@@ -4,21 +4,35 @@
         <meta charset="UTF-8">
         <title>Alura Typer</title>
 
+        <link rel="stylesheet" href="css/libs/materialize.min.css">
+        <link rel="stylesheet" href="css/libs/google-fonts.css">
         <link rel="stylesheet" href="css/estilos.css">
     </head>
     <body>
-        <h1>Alura Typer</h1>
-        <p class="frase">Frase com cinco, ou sete belas palavras</p>
-        <ul>
-            <li><span id="tamanho">5</span> palavras</li>
-            <li><span id="tempo">10</span> segundos</li>
-        </ul>
-        <textarea class="campoDeDigitacao" autofocus></textarea>
-        <button id="btnReiniciar">Reiniciar</button>
-        <ul>
-            <li><span id="contadorDeCaracteres">0</span> caracteres</li>
-            <li><span id="contadorDePalavras">0</span> palavras</li>
-        </ul>
+        <main class="container">
+            <h1 class="center">Alura Typer</h1>
+            <p class="frase">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <ul class="center">
+                <li>
+                    <span class="small material-icons">description</span>
+                    <span id="tamanho">5</span>
+                    palavras
+                </li>
+                <li>
+                    <span class="small material-icons">query_builder</span>
+                    <span id="tempo">10</span>
+                    segundos
+                </li>
+            </ul>
+            <textarea class="campoDeDigitacao" autofocus></textarea>
+            <div class="botoes">
+                <button id="btnReiniciar" class="btn-floating btn-large material-icons red">restore</button>
+            </div>
+            <ul class="center">
+                <li><span id="contadorDeCaracteres">0</span> caracteres</li>
+                <li><span id="contadorDePalavras">0</span> palavras</li>
+            </ul>
+        </main>
         <script src="js/jquery.js"></script>
         <script src="js/main.js"></script>
     </body>

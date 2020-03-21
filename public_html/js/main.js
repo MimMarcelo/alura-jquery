@@ -37,6 +37,7 @@ function iniciarCronometro(){
 function encerrarCronometro(){
     clearInterval(cronometro);
     cronometro = null;
+    campoDeDigitacao.addClass("campoDesabilitado");
 }
 
 function digitar(){
@@ -47,12 +48,29 @@ function digitar(){
     var palavras = conteudo.split(/\S+/);
     contadorDeCaracteres.text(conteudo.length);
     contadorDePalavras.text(palavras.length - 1);
+
+    verificarResposta(conteudo);
+}
+
+function verificarResposta(conteudo) {
+    var comparavel = frase.text().substr(0, conteudo.length);
+    if(conteudo === comparavel){
+        campoDeDigitacao.addClass("sucesso");
+        campoDeDigitacao.removeClass("erro");
+    }
+    else{
+    campoDeDigitacao.addClass("erro");
+        campoDeDigitacao.removeClass("sucesso");
+    }
 }
 
 function reiniciar() {
     if(cronometro != null){
         encerrarCronometro();
     }
+    campoDeDigitacao.removeClass("campoDesabilitado");
+    campoDeDigitacao.removeClass("sucesso");
+    campoDeDigitacao.removeClass("erro");
     campoDeDigitacao.attr("disabled", false);
     campoDeDigitacao.val("");
     campoDeDigitacao.focus();

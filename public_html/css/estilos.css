@@ -9,3 +9,25 @@ textarea{
     height: 50px;
     resize: none;
 }
+.frase, .campoDeDigitacao{
+    font-size: 2em;
+}
+.campoDeDigitacao{
+    height: 5em;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #000;
+}
+.campoDesabilitado{
+    background-color: #eee;
+    color: #666;
+}
+.sucesso{
+    border-color: #0F8;
+}
+.erro{
+    border-color: #F08;
+}
+.material-icons{
+    vertical-align: middle;
+}
