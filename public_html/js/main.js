@@ -29,10 +29,14 @@ function iniciarCronometro(){
         spanTempo.text(tempo);
         if(tempo < 1){
             campoDeDigitacao.attr("disabled", true);
-            clearInterval(cronometro);
-            cronometro = null;
+            encerrarCronometro();
         }
     }, 1000);
+}
+
+function encerrarCronometro(){
+    clearInterval(cronometro);
+    cronometro = null;
 }
 
 function digitar(){
@@ -46,6 +50,9 @@ function digitar(){
 }
 
 function reiniciar() {
+    if(cronometro != null){
+        encerrarCronometro();
+    }
     campoDeDigitacao.attr("disabled", false);
     campoDeDigitacao.val("");
     campoDeDigitacao.focus();
