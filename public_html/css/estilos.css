@@ -15,6 +15,9 @@ table buttom{
     background-color: transparent;
     cursor: pointer;
 }
+.botoes input{
+    width: 3em;
+}
 .frase, .campoDeDigitacao{
     font-size: 2em;
 }
@@ -34,9 +37,13 @@ table buttom{
 .erro{
     border-color: #F08;
 }
+p.erro{
+    color: red;
+    display: none;
+}
 .material-icons{
     vertical-align: middle;
 }
-#placar{
+#placar, #spinner{
     display: none;
 }
