@@ -2,6 +2,7 @@
     box-sizing: border-box;
 }
 body{
+    overflow: scroll;
     padding: 0 5em;
 }
 textarea{
@@ -35,4 +36,7 @@ table buttom{
 }
 .material-icons{
     vertical-align: middle;
+}
+#placar{
+    display: none;
 }
