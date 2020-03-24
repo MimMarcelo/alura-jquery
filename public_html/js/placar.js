@@ -1,6 +1,8 @@
 var placar = $("#placar");
 
 $("#btnPlacar").click(mostrarPlacar);
+$("#btnSincronizar").click(sincronizarPlacar);
+atualizarPlacar();
 
 function mostrarPlacar(){
     placar.stop().slideToggle();
@@ -50,4 +52,29 @@ function novaLinhaDoPlacar(nomeUsuario, nPalavras){
         linha.append(tdN);
         linha.append(tdRemover);
         return linha;
+}
+
+function sincronizarPlacar(){
+    var json = [];
+    var linhas = placar.find("tbody tr");
+    linhas.each(function(){
+        var usuario = $(this).find("td:nth-child(1)").text();
+        var palavras = $(this).find("td:nth-child(2)").text();
+        var score = {"usuario": usuario, "pontos": palavras};
+        json.push(score);
+    });
+    console.log(json);
+    // console.log(linhas);
+    var dados = {"placar": json};
+    $.post("http://localhost:3000/placar", dados);
+}
+
+function atualizarPlacar(){
+    $.get("http://localhost:3000/placar", function(data){
+        $(data).each(function() {
+            var linha = novaLinhaDoPlacar(this.usuario, this.pontos);
+            var corpoDaTabela = placar.find("tbody");
+            corpoDaTabela.prepend(linha);
+        });
+    });
 }

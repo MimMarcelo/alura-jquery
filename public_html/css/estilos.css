@@ -47,3 +47,6 @@ p.erro{
 #placar, #spinner{
     display: none;
 }
+#btnSincronizar{
+    float: right;
+}
